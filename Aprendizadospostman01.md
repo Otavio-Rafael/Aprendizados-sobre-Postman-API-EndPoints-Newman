@@ -30,11 +30,11 @@
     | **Auth**         | Onde você configura tokens, chaves de API ou autenticação básica.        |
 
 3. Exemplo prático: Suponha que você quer cadastrar um novo produto em uma loja via API;
-    1. Method: POST;
-    2. URL: https://serverest.dev/Produtos;
-    3. Headers;
+    - Method: POST;
+    - URL: https://serverest.dev/Produtos;
+    - Headers;
         - Content-Type: application/json.
-    4. Body;
+    - Body;
         - {
             "nome": "Tênis",
             "preco": 199.90,
@@ -45,9 +45,9 @@
 #### APIs
 1. API significa Application Programming Interface (Interface de Programação de Aplicações);
 2. Ela funciona como uma ponte que permite que diferentes sistemas, aplicações ou serviços se comuniquem entre si, é como um garçom em um restaurante;
-    1. Você (cliente) faz um pedido (requisição);
-    2. O garçom (API) leva o pedido até a cozinha (servidor);
-    3. A cozinha prepara e devolve o prato (resposta) por meio do garçom.
+    - Você (cliente) faz um pedido (requisição);
+    - O garçom (API) leva o pedido até a cozinha (servidor);
+    - A cozinha prepara e devolve o prato (resposta) por meio do garçom.
 
 #### EndPoints
 1. Endpoints são os endereços específicos dentro de uma API que representam funcionalidades ou recursos.
@@ -82,57 +82,57 @@ Cada endpoint corresponde a uma ação possível que pode ser feita por meio da 
 0. Primeiro entra na collection desejada e escolha a pasta que deseja caso tenha mais de uma;
 1. Ao lado do nome da "Collection" ou "Pasta" Selecionada tem um sinal de "mais", ao clicar nele você vai criar uma request, que é onde você adiciona a API e EndPoint para os testes;
 2. Após criar uma nova request no Postman, é exibida uma tela onde é possível inserir a URL da API, selecionar o método HTTP (GET, POST, etc.) e configurar parâmetros como Headers, Body, Authorization e Params. No botão Send, a requisição é enviada para o endpoint. Essa interface permite montar, testar e visualizar a resposta da API de forma detalhada;
-    1. Parte superior – Montagem da requisição;
+    - Parte superior – Montagem da requisição;
 
-        - **URL**: Campo onde você insere o endereço do endpoint da API;
-        - **Método HTTP**: Menu suspenso onde você escolhe a ação que quer executar (`GET`, `POST`, `PUT`, `DELETE`, etc);
-        - **Botão Send**: Envia a requisição montada para o servidor da API e aguarda a resposta;
-        - **Save**: Permite salvar a requisição dentro de uma collection.
+        1. **URL**: Campo onde você insere o endereço do endpoint da API;
+        2. **Método HTTP**: Menu suspenso onde você escolhe a ação que quer executar (`GET`, `POST`, `PUT`, `DELETE`, etc);
+        3. **Botão Send**: Envia a requisição montada para o servidor da API e aguarda a resposta;
+        4. **Save**: Permite salvar a requisição dentro de uma collection.
 
-    2. Parte intermediária – Configuração da requisição;
+    - Parte intermediária – Configuração da requisição;
 
-        - **Params**: Adiciona parâmetros de consulta (query strings) à URL, como `?chave=valor`;
-        - **Authorization**: Define o tipo de autenticação usado na API (ex: Bearer Token, Basic Auth, etc);
-        - **Headers**: Define cabeçalhos da requisição, como `Content-Type`, `Authorization`, etc;
-        - **Body**: Permite enviar dados no corpo da requisição (usado em `POST`, `PUT`...), geralmente em JSON;
-        - **Pre-request Script**: Scripts que rodam **antes** da requisição ser enviada;
-        - **Tests**: Scripts de teste que rodam **depois** que a resposta da API é recebida;
-        - **Settings**: Configurações específicas da requisição, como redirecionamento, timeout, etc.
+        1. **Params**: Adiciona parâmetros de consulta (query strings) à URL, como `?chave=valor`;
+        2. **Authorization**: Define o tipo de autenticação usado na API (ex: Bearer Token, Basic Auth, etc);
+        3. **Headers**: Define cabeçalhos da requisição, como `Content-Type`, `Authorization`, etc;
+        4. **Body**: Permite enviar dados no corpo da requisição (usado em `POST`, `PUT`...), geralmente em JSON;
+        5. **Pre-request Script**: Scripts que rodam **antes** da requisição ser enviada;
+        6. **Tests**: Scripts de teste que rodam **depois** que a resposta da API é recebida;
+        7. **Settings**: Configurações específicas da requisição, como redirecionamento, timeout, etc.
 
-    3. Parte inferior – Resposta da API.
+    - Parte inferior – Resposta da API.
 
-        - Exibe o **status da resposta** (ex: 200 OK, 404 Not Found);
-        - Mostra o **tempo de resposta**, o **tamanho do payload** e o **body da resposta**, geralmente em JSON;
-        - Permite visualizar os **headers da resposta**, cookies, e também testar scripts se configurados.
+        1. Exibe o **status da resposta** (ex: 200 OK, 404 Not Found);
+        2. Mostra o **tempo de resposta**, o **tamanho do payload** e o **body da resposta**, geralmente em JSON;
+        3. Permite visualizar os **headers da resposta**, cookies, e também testar scripts se configurados.
 
 3. Agora que a request já foi criada selecione o EndPoint desejado, nesse caso será usado o `Post`;
 4. Pegue a URL da API `https://serverest.dev/Produtos` essa é a URL da API gratuita usada (**Vale ressaltar que a URL original com todos os endereçoes esta no final do documento essa URL terminando em `/produto`serve apenas para acessar os EndPoints de Produto, caso queira acessar os EndPoint de usuário troque o final por `/usuario`**);
 5. Montando a request para cadastrar um novo produto. Para testar o endpoint de cadastro de produto (`POST https://serverest.dev/produtos`), foi necessário configurar alguns campos na requisição para garantir que a API aceite os dados e retorne a resposta esperada;
-    1. Headers utilizados;
+    - Headers utilizados;
 
-        - **Key: Authorization** Esse campo é obrigatório porque apenas usuários autenticados como **administradores** podem cadastrar novos produtos;
+        1. **Key: Authorization** Esse campo é obrigatório porque apenas usuários autenticados como **administradores** podem cadastrar novos produtos;
                 - **Value:** 
-                Para isso, você precisa estar logado com um usuário admin e copiar o **token** gerado no login (`POST /login`).  
+                Para isso, você precisa estar logado com um usuário admin e copiar o **token** gerado no login (`POST /login`).
                 O valor deve ser passado no formato:  
                 ```
                 Bearer {seu_token}
                 ```
 
-        - **KEY: Content-Type**: Indica para a API o **tipo de dado** que está sendo enviado no corpo da requisição (Body);
+        2. **KEY: Content-Type**: Indica para a API o **tipo de dado** que está sendo enviado no corpo da requisição (Body);
                 - **Value**
                 Como os dados do produto estão em **JSON**, o valor desse header precisa ser:
                 ```
                 application/json
                 ```
 
-        - **KEY: Accept** (opcional): Informa o tipo de resposta que o cliente espera da API.
+        3. **KEY: Accept** (opcional): Informa o tipo de resposta que o cliente espera da API.
                 - **Value**
                 ```
                 application/json
                 ```
 
-    2. Body da requisição.
-        - **BODY: Composição** No corpo da requisição, foram enviados os dados do novo produto no formato JSON, como no exemplo abaixo:
+    - Body da requisição.
+        1. **BODY: Composição** No corpo da requisição, foram enviados os dados do novo produto no formato JSON, como no exemplo abaixo:
 
                 ```json
                 {
@@ -149,8 +149,6 @@ Cada endpoint corresponde a uma ação possível que pode ser feita por meio da 
                 - **quantidade**: número de unidades a serem cadastradas.
 
                 !!Importante!!: certifique-se de que o tipo selecionado em `Body` seja **raw** e o formato seja **JSON**. Isso é essencial para que a API interprete corretamente os dados enviados.
-
-                ---
 
                 Essa configuração completa permite que o Postman envie a requisição com sucesso e a API retorne a resposta correspondente ao cadastro do produto.
 
@@ -333,49 +331,49 @@ Desvio padrão: 121ms
 2. A maior parte dos erros (400 e 401) aconteceram porque a collection foi executada de forma isolada, sem scripts que armazenem variáveis como ID, token ou dados criados em etapas anteriores. Isso quebra o fluxo de teste automatizado, abaixo segue detalhado cada erro e o porque.
 
     1. Consultando usuários sem filtro;
-    - **Método:** `GET`
-    - **Status:** `200 OK`
-    - **Motivo:** É uma rota pública, que lista todos os usuários. Não exige autenticação nem parâmetros.
+        - **Método:** `GET`
+        - **Status:** `200 OK`
+        - **Motivo:** É uma rota pública, que lista todos os usuários. Não exige autenticação nem parâmetros.
 
     2. Cadastro de usuário;
-    - **Método:** `POST`
-    - **Status:** `201 Created`
-    - **Motivo:** Usuário criado com sucesso. A resposta traz o `id`, mas ele não foi salvo automaticamente por ausência de script.
+        - **Método:** `POST`
+        - **Status:** `201 Created`
+        - **Motivo:** Usuário criado com sucesso. A resposta traz o `id`, mas ele não foi salvo automaticamente por ausência de script.
 
     3. Fazendo login;
-    - **Método:** `POST`
-    - **Status:** `200 OK`
-    - **Motivo:** Login efetuado com sucesso. O token de autenticação foi retornado, mas não armazenado em variáveis para uso posterior.
+        - **Método:** `POST`
+        - **Status:** `200 OK`
+        - **Motivo:** Login efetuado com sucesso. O token de autenticação foi retornado, mas não armazenado em variáveis para uso posterior.
 
     4. Consultando usuário com filtro (por e-mail);
-    - **Método:** `GET`
-    - **Status:** `200 OK`
-    - **Motivo:** E-mail foi passado corretamente via query param. A requisição não exige autenticação.
+        - **Método:** `GET`
+        - **Status:** `200 OK`
+        - **Motivo:** E-mail foi passado corretamente via query param. A requisição não exige autenticação.
 
     5. Consultando usuário por ID;
-    - **Método:** `GET`
-    - **Status:** `400 Bad Request`
-    - **Motivo:** O `id` informado é inválido ou inexistente. Como o ID do cadastro anterior não foi armazenado, o valor usado foi incorreto.
+        - **Método:** `GET`
+        - **Status:** `400 Bad Request`
+        - **Motivo:** O `id` informado é inválido ou inexistente. Como o ID do cadastro anterior não foi armazenado, o valor usado foi incorreto.
 
     6. Editando usuário;
-    - **Método:** `PUT`
-    - **Status:** `201 Created`
-    - **Motivo:** A edição foi feita com um ID válido, mas fixo. Funciona por coincidência, mas não é confiável sem atualização dinâmica.
+        - **Método:** `PUT`
+        - **Status:** `201 Created`
+        - **Motivo:** A edição foi feita com um ID válido, mas fixo. Funciona por coincidência, mas não é confiável sem atualização dinâmica.
 
     7. Apagando usuário;
-    - **Método:** `DELETE`
-    - **Status:** `200 OK`
-    - **Motivo:** O ID ainda existia e pôde ser apagado corretamente. O sucesso pode não se repetir sem controle de variáveis.
+        - **Método:** `DELETE`
+        - **Status:** `200 OK`
+        - **Motivo:** O ID ainda existia e pôde ser apagado corretamente. O sucesso pode não se repetir sem controle de variáveis.
 
     8. Consultando produtos;
-    - **Método:** `GET`
-    - **Status:** `200 OK`
-    - **Motivo:** Rota pública. Lista todos os produtos sem exigir token ou parâmetros.
+        - **Método:** `GET`
+        - **Status:** `200 OK`
+        - **Motivo:** Rota pública. Lista todos os produtos sem exigir token ou parâmetros.
 
     9. Cadastro de produto;
-    - **Método:** `POST`
-    - **Status:** `401 Unauthorized`
-    - **Motivo:** Falta de autenticação. O token de admin não foi incluído no header, então o cadastro foi recusado.
+        - **Método:** `POST`
+        - **Status:** `401 Unauthorized`
+        - **Motivo:** Falta de autenticação. O token de admin não foi incluído no header, então o cadastro foi recusado.
 
     10. Consultando produto por ID;
         - **Método:** `GET`
